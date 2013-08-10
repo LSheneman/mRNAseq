@@ -6,7 +6,7 @@ all: copyadapters benchmarks
 copyadapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 	
-benchmarks: adapter_trim.sh.time adapter_trim.time quality_trim.time extract_pairs.time trim_clean.time
+benchmarks: quality_trim.time extract_pairs.time trim_clean.time
 
 
 #adapter_trim.sh.time:
