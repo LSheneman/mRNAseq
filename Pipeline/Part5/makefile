@@ -1,5 +1,9 @@
 KHMER=/usr/local/share/khmer
 
+copydata:
+	cd /mnt
+	curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
+	
 all: benchmarks
 
 benchmarks: khmer_part.time group.time format_annotate.time nema.x.mouse.time mouse.x.nema.time nema.x.mouse.homol.time nema.x.mouse.ortho.time get_mouse_info.time trinity-nematostella.renamed.fa.annot.time
