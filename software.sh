@@ -89,6 +89,10 @@ mkdir time
 mkdir work
 cd work
 ln -fs /data/*.fastq.gz .
-cp /root/mRNAseq/Pipeline/makefile makefile
+cp /root/mRNAseq/Pipeline/Part2/makefile makefile
+cp /root/mRNAseq/Pipeline/Part2/cleanup2.sh
+
+#Eel Pond scripts
+git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
 
 
