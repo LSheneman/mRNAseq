@@ -11,7 +11,7 @@ benchmarks: khmer_part.time group.time format_annotate.time nema.x.mouse.time mo
 
 khmer_part.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	time -o ../time/khmer_part.time 
+	time -o ../time/khmer_part.time ${KHMER}/scripts/do-partition.py -x 1e9 -N 4 --threads 4 nema trinity-nematostella-raw.fa.gz
 	
 group.time:
 	-echo 3 > /proc/sys/vm/drop_caches
