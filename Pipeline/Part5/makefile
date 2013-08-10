@@ -1,10 +1,11 @@
 KHMER=/usr/local/share/khmer
 
+	
+all: copydata benchmarks 
+
 copydata:
 	cd /mnt
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
-	
-all: benchmarks
 
 benchmarks: khmer_part.time group.time format_annotate.time nema.x.mouse.time mouse.x.nema.time nema.x.mouse.homol.time nema.x.mouse.ortho.time get_mouse_info.time trinity-nematostella.renamed.fa.annot.time
 
@@ -46,8 +47,3 @@ trinity-nematostella.renamed.fa.annot.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	time -o ../time/trinity-nematostella.renamed.fa.annot.time python /usr/local/share/eel-pond/annotate-seqs.py trinity-nematostella.renamed.fa nema.x.mouse.ortho nema.x.mouse.homol
 	mv trinity-nematostella.renamed.fa.annot nematostella.fa
-
- 
-	
-	-echo 3 > /proc/sys/vm/drop_caches
-	time -o ../time/
