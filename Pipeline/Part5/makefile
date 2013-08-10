@@ -1,8 +1,49 @@
 KHMER=/usr/local/share/khmer
 
-all: 
+all: benchmarks
 
-benchmarks:
+benchmarks: khmer_part.time group.time format_annotate.time nema.x.mouse.time mouse.x.nema.time nema.x.mouse.homol.time nema.x.mouse.ortho.time get_mouse_info.time trinity-nematostella.renamed.fa.annot.time
 
+khmer_part.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/khmer_part.time 
+	
+group.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/group.time python /usr/local/share/eel-pond/rename-with-partitions.py nema trinity-nematostella-raw.fa.gz.part
+	mv trinity-nematostella-raw.fa.gz.part.renamed.fasta.gz trinity-nematostella.renamed.fa.gz
+
+format_annotate.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/format_annotate.time sh format_annotate.sh
+	
+nema.x.mouse.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/nema.x.mouse.time blastall -i trinity-nematostella.renamed.fa -d mouse.protein.faa -e 1e-3 -p blastx -o nema.x.mouse -a 8 -v 4 -b 4
+
+mouse.x.nema.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/mouse.x.nema.time blastall -i mouse.protein.faa -d trinity-nematostella.renamed.fa -e 1e-3 -p tblastn -o mouse.x.nema -a 8 -v 4 -b 4
+
+#putative homology (best BLAST hit) 
+nema.x.mouse.homol.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/nema.x.mouse.homol.time python /usr/local/share/eel-pond/make-uni-best-hits.py nema.x.mouse nema.x.mouse.homol
+
+nema.x.mouse.ortho.time:	
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/nema.x.mouse.ortho.time python /usr/local/share/eel-pond/make-reciprocal-best-hits.py nema.x.mouse mouse.x.nema nema.x.mouse.ortho
+
+get_mouse_info.time:	
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/get_mouse_info.time sh get_mouse_info.sh
+
+trinity-nematostella.renamed.fa.annot.time:	
+	-echo 3 > /proc/sys/vm/drop_caches
+	time -o ../time/trinity-nematostella.renamed.fa.annot.time python /usr/local/share/eel-pond/annotate-seqs.py trinity-nematostella.renamed.fa nema.x.mouse.ortho nema.x.mouse.homol
+	mv trinity-nematostella.renamed.fa.annot nematostella.fa
+
+ 
+	
 	-echo 3 > /proc/sys/vm/drop_caches
 	time -o ../time/
