@@ -3,6 +3,7 @@
 
 rm *.fastq.gz
 rm *.pe.fq.gz *.se.fq.gz
+rm *.pe.qc.fq.gz
 
 #Rename the files to make them easier to read 
 for i in *.pe.qc.fq.gz.pe
