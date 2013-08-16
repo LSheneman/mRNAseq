@@ -5,17 +5,17 @@ all: copyadapters benchmarks
 copyadapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 	
-benchmarks: adapter_trim.sh.time adapter_trim.time 
-#quality_trim.time extract_pairs.time trim_clean.time
+benchmarks: adapter_trim.sh.time e 
+#adapter_trim.tim quality_trim.time extract_pairs.time trim_clean.time
 
 
 adapter_trim.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	time -o time/adapter_trim.sh.time bash adapter_trim.sh
 
-adapter_trim.time:
-	-echo 3 > /proc/sys/vm/drop_caches
-	time -o ../time/adapter_trim.time bash trim.sh
+# adapter_trim.time:
+# 	-echo 3 > /proc/sys/vm/drop_caches
+# 	time -o ../time/adapter_trim.time bash trim.sh
 
 
 # quality_trim.time:
