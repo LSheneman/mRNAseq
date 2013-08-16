@@ -23,7 +23,7 @@ adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	time -o ../time/adapter_trim.time bash trim.sh
 	touch top-output2.txt
-	until test -f adapter_trim.time
+	until  [[-f ../adapter_trim.time]]
 	do
 		top -n 1 -b >> top-output2.txt
 		sleep 300
