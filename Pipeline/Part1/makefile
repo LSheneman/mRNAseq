@@ -13,7 +13,7 @@ adapter_trim.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	time -o ../time/adapter_trim.sh.time python /usr/local/share/khmer/sandbox/write-trimmomatic.py > trim.sh
 	touch top-output.txt
-	until test -f adapter_trim.sh.time
+	until [[-f adapter_trim.sh.time]]
 	do
 		top -n 1 -b >> top-output.txt
 		sleep 300
