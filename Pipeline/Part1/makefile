@@ -11,7 +11,7 @@ benchmarks: adapter_trim.sh.time adapter_trim.time
 
 adapter_trim.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	time -o /time/adapter_trim.sh.time bash adapter_trim.sh
+	time -o time/adapter_trim.sh.time bash adapter_trim.sh
 
 adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
