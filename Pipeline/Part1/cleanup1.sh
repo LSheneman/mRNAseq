@@ -1,6 +1,8 @@
 #!/bin/bash
 # Cleaning up files after step 1: Quality Trimming and Filtering Your Sequences
 
+clean()
+{
 rm *.fastq.gz
 rm *.pe.fq.gz *.se.fq.gz
 rm *.pe.qc.fq.gz
@@ -25,3 +27,12 @@ done
 
 #Change the rights to make them hard to delete
 chmod u-w *.qc.fq.gz
+}
+
+clean()
+touch trim_clean.time.txt
+while [ ! -f time/trim_clean.time ]
+do
+	mpstat -P ALL 1 1 >> trim_clean.time.txt
+	sleep 5
+done
