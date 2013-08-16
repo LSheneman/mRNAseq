@@ -82,13 +82,12 @@ chmod a+rxwt files
 chmod +x /root
 
 #Get data
-mkdir /data
-mount /dev/xvdf /data
+# mkdir /data
+# mount /dev/xvdf /data
 cd /mnt
-mkdir time
 mkdir work
 cd work
-ln -fs /data/*.fastq.gz .
+mkdir time
 
 #Eel Pond scripts
 git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
