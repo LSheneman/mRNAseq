@@ -82,14 +82,11 @@ chmod a+rxwt files
 chmod +x /root
 
 #Get data
-# mkdir /data
-# mount /dev/xvdf /data
+mkdir /data
+mount /dev/xvdf /data
 cd /mnt
 mkdir work
 cd work
-mkdir time
 
 #Eel Pond scripts
 git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
-
-touch softwareTest.time
