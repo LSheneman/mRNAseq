@@ -14,7 +14,7 @@ adapter_trim.time:
 
 trim_run.sh.time: 
 	-echo 3 > /proc/sys/vm/drop_caches
-	/usr/bin/time -o ../time/trim_run.time bash trim.sh & bash statOutput.sh trim_run.time
+	/usr/bin/time -o ../time/trim_run.sh.time bash trim.sh & bash statOutput.sh trim_run.sh.time
 
 # quality_trim.sh.time:
 # 	-echo 3 > /proc/sys/vm/drop_caches
