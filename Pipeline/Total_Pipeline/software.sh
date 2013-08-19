@@ -84,8 +84,10 @@ chmod +x /root
 mkdir /data
 mount /dev/xvdf /data
 cd /mnt
+cp /root/mRNAseq/Pipeline/Total_Pipeline/* work/
 mkdir work
 cd work
 
 #link inital data
 ln -fs /data/*.fastq.gz .
+cd /mnt/
