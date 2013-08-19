@@ -10,8 +10,7 @@ benchmarksPart1: adapter_trim.time trim_run.sh.time quality_trim.sh.time
 
 adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	/usr/bin/time -o ../time/adapter_trim.time python /usr/local/share/khmer/sandbox/write-trimmomatic.py > trim.sh &
-	 bash statOutput.sh adapter_trim.time
+	/usr/bin/time -o ../time/adapter_trim.time  & bash statOutput.sh adapter_trim.time
 
 trim_run.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
