@@ -5,8 +5,8 @@ all: copyadapters1 benchmarksPart1 benchmarksPart2 benchmarksPart3 copydata5 ben
 copyadapters1:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 	
-benchmarksPart1: adapter_trim.sh.time trim_run.sh.time quality_trim.time 
-	extract_pairs.time trim_clean.time &
+benchmarksPart1: adapter_trim.time trim_run.sh.time quality_trim.sh.time 
+	extract_pairs.sh.time trim_clean.sh.time &
 	 bash statOutput.sh diginorm_pe.sh.time
 
 
@@ -15,7 +15,7 @@ adapter_trim.time:
 	time -o time/adapter_trim.time bash python /usr/local/share/khmer/sandbox/write-trimmomatic.py > trim.sh &
 	 bash statOutput.sh adapter_trim.time
 
-trim_run.time:
+trim_run.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	time -o ../time/trim_run.time bash trim.sh &
 	 bash statOutput.sh trim_run.time
@@ -35,10 +35,10 @@ trim_clean.sh.time:
 	time -o ../time/trim_clean.time	bash trim_clean.sh &
 	 bash statOutput.sh diginorm_pe.sh.time 
 
-benchmarksPart2: diginorm_pe.sh.time diginorm_se.time filter-adund.time diginorm_clean.sh.time
+benchmarksPart2: diginorm_pe.time diginorm_se.time filter-adund.time diginorm_clean.sh.time
 
 #Apply digital normalization to the paired-end reads
-diginorm_pe.sh.time:
+diginorm_pe.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	time -o ../time/diginorm_pe.time python ${KHMER}/scripts/normalize-by-median.py -p -k 20 -C 20 -N 4 -x 3e9 --savehash normC20k20.kh *.pe.qc.fq.gz &
 	 bash statOutput.sh diginorm_pe.sh.time
