@@ -1,7 +1,7 @@
 #Make file for The Eel Pond Pipeline
 
 all: copyadapters1 benchmarksPart1 
-#benchmarksPart2 benchmarksPart3 copydata5 benchmarksPart5
+
 
 copyadapters1:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
@@ -12,7 +12,7 @@ adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	/usr/bin/time -o ../time/adapter_trim.time bash adapter_trim.sh & bash statOutput.sh adapter_trim.time
 
-trim_run.sh.time: 
+trim_run.sh.time: adapter_trim.time
 	-echo 3 > /proc/sys/vm/drop_caches
 	/usr/bin/time -o ../time/trim_run.sh.time bash trim.sh & bash statOutput.sh trim_run.sh.time
 
