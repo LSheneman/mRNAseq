@@ -36,7 +36,6 @@ cd fastx_toolkit-0.0.13.2/
 cd /root
 
 curl -L http://sourceforge.net/projects/trinityrnaseq/files/latest/download?source=files > trinity.tar.gz
-
 tar xzf trinity.tar.gz
 cd trinityrnaseq_r2013-02-25/
 export FORCE_UNSAFE_CONFIGURE=1
@@ -84,8 +83,8 @@ chmod +x /root
 mkdir /data
 mount /dev/xvdf /data
 cd /mnt
-cp /root/mRNAseq/Pipeline/Total_Pipeline/* work/
 mkdir work
+cp /root/mRNAseq/Pipeline/Total_Pipeline/* work/
 cd work
 
 #link inital data
