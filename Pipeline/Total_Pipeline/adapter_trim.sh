@@ -1,0 +1,1 @@
+python /usr/local/share/khmer/sandbox/write-trimmomatic.py > trim.sh
