@@ -7,7 +7,6 @@ copyadapters1:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 	
 benchmarksPart1: adapter_trim.time trim_run.sh.time 
-	#quality_trim.sh.time extract_pairs.sh.time trim_clean.sh.time
 
 adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
