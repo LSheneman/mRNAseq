@@ -1,0 +1,51 @@
+name = []
+mem = []
+time = []
+cpu = []
+
+for x in range(0, len(filesPart5)):
+    temp = _get_time_all(filesPart5[x])
+    name.append(((filesPart5[x])[11:])[:-5])
+    mem.append(temp[0])
+    time.append(temp[1])
+    cpu.append(temp[2])
+
+print len(name)
+print "time " , max(time) 
+print "mem " , max(mem) 
+print "cpu " , max(cpu) 
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 5
+
+ind = np.arange(9)  # the x locations for the groups
+width = 0.5       # the width of the bars
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+rects1 = ax.bar(ind+15, time, width, color='b', align='center')
+
+# add some
+ax.set_ylabel('Time (s)')
+ax.set_title('Time to execute each command in Transcription of The Eel Pond Tutorial')
+ax.set_xticks(ind+15)
+ax.set_xmargin(1)
+ax.set_xticklabels(name)
+
+ax.set_ylim(0, 250000)
+
+def autolabel(rects):
+    # attach some text labels
+    for rect in rects:
+        height = rect.get_height()
+        ax.text(rect.get_x()+rect.get_width()/2., 1.05*height, '%d'%int(height),
+                ha='center', va='bottom')
+
+autolabel(rects1)
+
+plt.show()
+#plt.savefig('assemblyTime.png')

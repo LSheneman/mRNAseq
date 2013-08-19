@@ -90,11 +90,11 @@ filesPart2 = glob.glob(datadirs[1] + '*')
 filesPart3 = glob.glob(datadirs[2] + '*')
 filesPart5 = glob.glob(datadirs[3] + '*')
 
-time = {}
-time[0] = get_time_all(filesPart1)
-time[1] = get_time_all(filesPart2)
-time[2] = get_time_all(filesPart3)
-time[3] = get_time_all(filesPart5)
+partTimes = {}
+partTimes[0] = get_time_all(filesPart1)
+partTimes[1] = get_time_all(filesPart2)
+partTimes[2] = get_time_all(filesPart3)
+partTimes[3] = get_time_all(filesPart5)
 
 #Time stats
 print "System,   User,    Time"
@@ -102,9 +102,9 @@ print
 print
 print "Execution time based on tutorial sections:"
 print
-for x in range(0, len(time)):
+for x in range(0, len(partTimes)):
     print names[x], 
-    print time[x]
+    print partTimes[x]
 print
 print
 
