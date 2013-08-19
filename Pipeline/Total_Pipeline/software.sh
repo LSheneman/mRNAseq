@@ -68,6 +68,9 @@ tar xzf blast-2.2.24-x64-linux.tar.gz
 cp blast-2.2.24/bin/* /usr/local/bin
 cp -r blast-2.2.24/data /usr/local/blast-data
 
+#Eel Pond scripts
+git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
+
 cd /root
 git clone https://github.com/ctb/blastkit.git -b ec2
 cd blastkit/www
@@ -84,5 +87,5 @@ cd /mnt
 mkdir work
 cd work
 
-#Eel Pond scripts
-git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
+#link inital data
+ln -fs /data/*.fastq.gz .
