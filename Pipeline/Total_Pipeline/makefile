@@ -17,17 +17,17 @@ trim_run.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	/usr/bin/time -o ../time/trim_run.time bash trim.sh & bash statOutput.sh trim_run.time
 
-quality_trim.sh.time:
-	-echo 3 > /proc/sys/vm/drop_caches
-	/usr/bin/time -o ../time/qualitytrim.time bash quality_trim.sh & bash statOutput.sh diginorm_pe.sh.time
+# quality_trim.sh.time:
+# 	-echo 3 > /proc/sys/vm/drop_caches
+# 	/usr/bin/time -o ../time/qualitytrim.time bash quality_trim.sh & bash statOutput.sh diginorm_pe.sh.time
 
-extract_pairs.sh.time:
-	-echo 3 > /proc/sys/vm/drop_caches
-	/usr/bin/time -o ../time/extract_pairs.time bash extract_pairs.sh & bash statOutput.sh diginorm_pe.sh.time
+# extract_pairs.sh.time:
+# 	-echo 3 > /proc/sys/vm/drop_caches
+# 	/usr/bin/time -o ../time/extract_pairs.time bash extract_pairs.sh & bash statOutput.sh diginorm_pe.sh.time
 
-trim_clean.sh.time:
-	-echo 3 > /proc/sys/vm/drop_caches
-	/usr/bin/time -o ../time/trim_clean.time bash trim_clean.sh & bash statOutput.sh diginorm_pe.sh.time 
+# trim_clean.sh.time:
+# 	-echo 3 > /proc/sys/vm/drop_caches
+# 	/usr/bin/time -o ../time/trim_clean.time bash trim_clean.sh & bash statOutput.sh diginorm_pe.sh.time 
 
 # benchmarksPart2: diginorm_pe.time diginorm_se.time filter-adund.time diginorm_clean.sh.time
 

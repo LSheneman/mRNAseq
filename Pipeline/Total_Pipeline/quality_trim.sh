@@ -1,6 +1,5 @@
 #!/bin/bash
 #Quality trim each pair of files
-gunzip -c <filename> | fastq_quality_filter -Q33 -q 30 -p 50 | gzip -9c > <filename>.qc.fq.gz
 
 for i in *.pe.fq.gz *.se.fq.gz
 do
