@@ -9,7 +9,7 @@ benchmarks: diginorm_pe.sh.time
 #Apply digital normalization to the paired-end reads
 diginorm_pe.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	time -o diginorm_pe.time bash diginorm_pe.sh
+	time -o diginorm_pe.time bash diginorm_pe.sh & bash statOutput.sh diginorm_pe.sh.time
 
 # #Apply digital normalization to the singled-end reads
 # diginorm_se.time:
