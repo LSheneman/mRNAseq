@@ -12,15 +12,19 @@ done
 
 progress()
 {
-/usr/bin/time -o ../time/quality_trim.sh.time splitData()
-done
+	/usr/bin/time -o ../time/quality_trim.sh.time splitData()
 }
 
-progress() &
-touch quality_trim.sh.mp.txt , quality_trim.sh.vm.txt
-until [ -f ../time/quality_trim.sh.time ]
-do
-	mpstat -P ALL 1 2 | tail -6 >> ../output/quality_trim.sh.mp.txt
-	vmstat 1 2 | (head -2; tail -1) | tail -2 >> ../output/quality_trim.sh.vm.txt
-	sleep 5
-done
+stats()
+{
+	touch quality_trim.sh.mp.txt , quality_trim.sh.vm.txt
+	until [ -f ../time/quality_trim.sh.time ]
+	do
+		mpstat -P ALL 1 2 | tail -6 >> ../output/quality_trim.sh.mp.txt
+		vmstat 1 2 | (head -2; tail -1) | tail -2 >> ../output/quality_trim.sh.vm.txt
+		sleep 5
+	done
+}
+
+coproc stats progess
+echo "done"
