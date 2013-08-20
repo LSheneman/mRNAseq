@@ -83,7 +83,7 @@ chmod +x /root
 mkdir /data
 mount /dev/xvdf /data
 cd /mnt
-mkdir work
+mkdir work time output
 cp /root/mRNAseq/Pipeline/Total_Pipeline/* work/
 cd work
 
