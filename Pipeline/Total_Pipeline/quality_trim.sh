@@ -1,6 +1,6 @@
 #!/bin/bash
 #Quality trim each pair of files
-splitData
+splitData()
 {
 for i in *.pe.fq.gz *.se.fq.gz
 do

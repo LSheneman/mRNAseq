@@ -1,6 +1,6 @@
 #!/bin/bash
 # Cleaning up files after step 1: Quality Trimming and Filtering Your Sequences
-clean
+clean()
 {
 rm *.fastq.gz
 rm *.pe.fq.gz *.se.fq.gz

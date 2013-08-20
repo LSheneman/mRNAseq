@@ -1,6 +1,6 @@
 #!/bin/bash
 #Extracting paired ends from the interleaved files
-extract
+extract()
 {
 for i in *.pe*.qc.fq.gz
 do

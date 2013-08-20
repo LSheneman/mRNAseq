@@ -1,4 +1,4 @@
-progress
+progress()
 {
 /usr/bin/time -o ../time/adapter_trim.time python /usr/local/share/khmer/sandbox/write-trimmomatic.py > trim.sh
 }
