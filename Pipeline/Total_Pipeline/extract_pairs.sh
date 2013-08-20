@@ -14,8 +14,7 @@ progress()
 done
 }
 
-progress() &
-touch extract_pairs.sh.mp.txt , extract_pairs.sh.vm.txt
+progress() & touch extract_pairs.sh.mp.txt , extract_pairs.sh.vm.txt
 until [ -f ../time/extract_pairs.sh.time ]
 do
 	mpstat -P ALL 1 2 | tail -6 >> ../output/extract_pairs.sh.mp.txt
