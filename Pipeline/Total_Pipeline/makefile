@@ -7,13 +7,13 @@ copyadapters1:
 	
 benchmarksPart1: adapter_trim.time trim_run.sh.time 
 
-adapter_trim.time:
+adapter_trim.time: 
 	-echo 3 > /proc/sys/vm/drop_caches
-	/usr/bin/time -o ../time/adapter_trim.time bash adapter_trim.sh 
+	bash adapter_trim.sh
 
 trim_run.sh.time: adapter_trim.time
 	-echo 3 > /proc/sys/vm/drop_caches
-	/usr/bin/time -o ../time/trim_run.sh.time bash trim.sh
+	bash trim_run.sh 
 
 # quality_trim.sh.time:
 # 	-echo 3 > /proc/sys/vm/drop_caches
