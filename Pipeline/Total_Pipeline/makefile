@@ -5,7 +5,7 @@ all: copyadapters1 benchmarksPart1
 copyadapters1:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 	
-benchmarksPart1: adapter_trim.time trim_run.sh.time 
+benchmarksPart1: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pairs.sh.time trim_clean.sh.time
 
 adapter_trim.time: 
 	-echo 3 > /proc/sys/vm/drop_caches
@@ -15,17 +15,17 @@ trim_run.sh.time: adapter_trim.time
 	-echo 3 > /proc/sys/vm/drop_caches
 	bash trim_run.sh 
 
-# quality_trim.sh.time:
-# 	-echo 3 > /proc/sys/vm/drop_caches
-# 	/usr/bin/time -o ../time/qualitytrim.time bash quality_trim.sh & bash statOutput.sh diginorm_pe.sh.time
+quality_trim.sh.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash quality_trim.sh
 
-# extract_pairs.sh.time:
-# 	-echo 3 > /proc/sys/vm/drop_caches
-# 	/usr/bin/time -o ../time/extract_pairs.time bash extract_pairs.sh & bash statOutput.sh diginorm_pe.sh.time
+extract_pairs.sh.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash extract_pairs.sh
 
-# trim_clean.sh.time:
-# 	-echo 3 > /proc/sys/vm/drop_caches
-# 	/usr/bin/time -o ../time/trim_clean.time bash trim_clean.sh & bash statOutput.sh diginorm_pe.sh.time 
+trim_clean.sh.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash trim_clean.sh 
 
 # benchmarksPart2: diginorm_pe.time diginorm_se.time filter-adund.time diginorm_clean.sh.time
 

@@ -1,7 +1,6 @@
 progress()
 {
 /usr/bin/time -o ../time/trim_run.sh.time bash trim.sh
-done
 }
 
 progress() &
