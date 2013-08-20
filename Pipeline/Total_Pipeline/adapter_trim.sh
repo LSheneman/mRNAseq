@@ -5,7 +5,7 @@ progress()
 
 stats()
 {
-touch adapter_trim.mp.txt , adapter_trim.vm.txt
+	touch adapter_trim.mp.txt , adapter_trim.vm.txt
         until [ -f ../time/adapter_trim.time ]
         do
                 mpstat -P ALL 1 2 | tail -6 >> ../output/adapter_trim.mp.txt
