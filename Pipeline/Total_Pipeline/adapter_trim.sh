@@ -10,3 +10,4 @@ do
 	vmstat 1 2 | (head -2; tail -1) | tail -2 >> ../output/adapter_trim.vm.txt
 	sleep 5
 done & progress()
+done
