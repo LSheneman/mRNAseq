@@ -1,0 +1,14 @@
+progress()
+{
+/usr/bin/time -o trim_run.sh.time bash trim.sh
+done
+}
+
+progress() &
+touch trim_run.time.mp.txt , trim_run.time.vm.txt
+until [ -f done2.txt ]
+do
+	mpstat -P ALL 1 2 | tail -6 >> ../output/trim_run.time.mp.txt
+	vmstat 1 2 | (head -2; tail -1) | tail -2 >> ../output/trim_run.time.vm.txt
+	sleep 5
+done
