@@ -48,7 +48,7 @@ nema.x.mouse.ortho.time:
 
 get_mouse_info.sh.time:	
 	-echo 3 > /proc/sys/vm/drop_caches
-	time -o ../time/get_mouse_info.sh.time sh get_mouse_info.sh.sh &
+	time -o ../time/get_mouse_info.sh.time sh get_mouse_info.sh &
 	 bash statOutput.sh get_mouse_info.sh.time 
 
 trinity-nematostella.renamed.fa.annot.time:	
