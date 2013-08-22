@@ -6,8 +6,7 @@ copyadapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 	
 benchmarks: adapter_trim.sh.time trim_run.sh.time quality_trim.time 
-	extract_pairs.time trim_clean.time &
-	 bash statOutput.sh diginorm_pe.sh.time
+	extract_pairs.time trim_clean.time 
 
 
 adapter_trim.time:
