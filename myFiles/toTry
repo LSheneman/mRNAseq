@@ -1,7 +1,0 @@
-touch top-output.txt
-until test -f tomcat.pid
-do
-	top -n 1 -b > top-output.txt
-	sleep 300
-done	
-	
