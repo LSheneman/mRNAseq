@@ -1,7 +1,7 @@
 #!/bin/bash
 #general packages
 apt-get install sysstat
-SOFTWARE SOURCE=../source
+SOFTWARE_SOURCE=/root/mRNAseq/source
 
 #Install eel-pond scripts
 git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
@@ -10,13 +10,13 @@ git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
 cd /mnt/work
 curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
 
-${SOFTWARE SOURCE}/screed.sh
-${SOFTWARE SOURCE}/khmer.sh 
-#${SOFTWARE SOURCE}/trimmomatic_install.sh
-#${SOFTWARE SOURCE}/fastx_install.sh
-#${SOFTWARE SOURCE}/libgtextutils.sh
-#${SOFTWARE SOURCE}/trinity.sh
-#${SOFTWARE SOURCE}/bowtie.sh
-#${SOFTWARE SOURCE}/samtools.sh
+${SOFTWARE_SOURCE}/screed.sh
+${SOFTWARE_SOURCE}/khmer.sh 
+#${SOFTWARE_SOURCE}/trimmomatic_install.sh
+#${SOFTWARE_SOURCE}/fastx_install.sh
+#${SOFTWARE_SOURCE}/libgtextutils.sh
+#${SOFTWARE_SOURCE}/trinity.sh
+#${SOFTWARE_SOURCE}/bowtie.sh
+#${SOFTWARE_SOURCE}/samtools.sh
 
 
