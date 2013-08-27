@@ -10,13 +10,11 @@ git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
 cd /mnt/work
 curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
 
-${SOFTWARE_SOURCE}/screed.sh
-${SOFTWARE_SOURCE}/khmer.sh 
-#${SOFTWARE_SOURCE}/trimmomatic_install.sh
-#${SOFTWARE_SOURCE}/fastx_install.sh
-#${SOFTWARE_SOURCE}/libgtextutils.sh
-#${SOFTWARE_SOURCE}/trinity.sh
-#${SOFTWARE_SOURCE}/bowtie.sh
-#${SOFTWARE_SOURCE}/samtools.sh
-
-
+${SOFTWARE_SOURCE}/screed_install.sh
+${SOFTWARE_SOURCE}/khmer_install.sh 
+${SOFTWARE_SOURCE}/trimmomatic_install.sh
+${SOFTWARE_SOURCE}/fastx_install.sh
+${SOFTWARE_SOURCE}/libgtextutils_install.sh
+${SOFTWARE_SOURCE}/trinity_install.sh
+${SOFTWARE_SOURCE}/bowtie_install.sh
+${SOFTWARE_SOURCE}/samtools_install.sh
