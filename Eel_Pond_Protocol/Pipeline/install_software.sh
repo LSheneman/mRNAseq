@@ -16,6 +16,7 @@ ${SOFTWARE_SOURCE}/khmer_install.sh
 ${SOFTWARE_SOURCE}/trimmomatic_install.sh
 ${SOFTWARE_SOURCE}/fastx_install.sh
 ${SOFTWARE_SOURCE}/libgtextutils_install.sh
+${SOFTWARE_SOURCE}/fastx_install.sh
 ${SOFTWARE_SOURCE}/trinity_install.sh
 ${SOFTWARE_SOURCE}/bowtie_install.sh
 ${SOFTWARE_SOURCE}/samtools_install.sh
