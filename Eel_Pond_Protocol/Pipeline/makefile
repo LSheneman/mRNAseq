@@ -6,11 +6,7 @@ all: adapters benchmarks
 adapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 
-benchmarks: adapter_trim.time trim_run.sh.time quality_trim.sh.time \
-	extract_pairs.sh.time trim_clean.sh.time \
-	diginorm_pe.sh.time diginorm_se.time filter-adund.time diginorm_clean.sh.time \
-	trinity_split.sh.time trinity.time \
-	khmer_part.time group.time format_annotate.sh.time nema.x.mouse.time \
+benchmarks: khmer_part.time group.time format_annotate.sh.time nema.x.mouse.time \
 	mouse.x.nema.time homology.time orthology.time \
 	get_mouse_info.sh.time annotate.time
 
@@ -75,7 +71,7 @@ trinity.time:
 #Part 5
 khmer_part.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	bash stats.sh khmer_part & time -o khmer_part.time /usr/local/share/khmer/scripts/do-partition.py -x 1e9 -N 4 --threads 4 nema trinity-nematostella-raw.fa.gz
+	bash stats.sh khmer_part & time -o khmer_part.time khmer_part.sh
 	touch khmer_part.time.done
 
 group.time:
