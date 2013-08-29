@@ -1,7 +1,7 @@
 #Makefile
 KHMER=/usr/local/share/khmer
 
-all: adapters benchmarks
+all: benchmarks
 	
 adapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
@@ -71,7 +71,7 @@ trinity.time:
 #Part 5
 khmer_part.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	bash stats.sh khmer_part & time -o khmer_part.time khmer_part.sh
+	bash stats.sh khmer_part & time -o khmer_part.time /usr/local/share/khmer/scripts/do-partition.py -x 1e9 -N 4 --threads 4 nema trinity-nematostella-raw.fa.gz
 	touch khmer_part.time.done
 
 group.time:
