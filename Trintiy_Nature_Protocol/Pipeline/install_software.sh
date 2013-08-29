@@ -1,8 +1,8 @@
 #!/bin/bash
 #general packages
-apt-get install sysstat
-apt-get install r-base
-SOFTWARE_SOURCE=/root/mRNAseq/Eel_Pond_Protocol/source
+apt-get install sysstat --force-yes 
+apt-get install r-base --force-yes 
+SOFTWARE_SOURCE=/root/mRNAseq/Trintiy_Nature_Protocol/source
 
 #Install eel-pond scripts
 git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
