@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript
 source( "http://bioconductor.org/biocLite.R"	)
 biocLite()
 biocLite (' )edgeR ' )
