@@ -1,7 +1,7 @@
 #!/bin/bash
 #general packages
-apt-get install sysstat
-SOFTWARE_SOURCE=/root/mRNAseq/Eel_Pond_Protocol/source
+apt-get install sysstat --force-yes 
+SOFTWARE_SOURCE=/root/mRNAseq/Source
 
 #Install eel-pond scripts
 git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
@@ -20,3 +20,4 @@ ${SOFTWARE_SOURCE}/fastx_install.sh
 ${SOFTWARE_SOURCE}/trinity_install.sh
 ${SOFTWARE_SOURCE}/bowtie_install.sh
 ${SOFTWARE_SOURCE}/samtools_install.sh
+${SOFTWARE_SOURCE}/blast_install.sh

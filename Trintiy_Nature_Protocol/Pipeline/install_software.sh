@@ -2,7 +2,7 @@
 #general packages
 apt-get install sysstat --force-yes 
 apt-get install r-base --force-yes 
-SOFTWARE_SOURCE=/root/mRNAseq/Trintiy_Nature_Protocol/source
+SOFTWARE_SOURCE=/root/mRNAseq/Source
 
 #Install eel-pond scripts
 git clone https://github.com/ctb/eel-pond.git /usr/local/share/eel-pond
@@ -16,4 +16,4 @@ ${SOFTWARE_SOURCE}/trinity_install.sh
 ${SOFTWARE_SOURCE}/bowtie_install.sh
 ${SOFTWARE_SOURCE}/samtools_install.sh
 ${SOFTWARE_SOURCE}/blast.sh
-R CMD BATCH
+${SOFTWARE_SOURCE}/r_para.R
