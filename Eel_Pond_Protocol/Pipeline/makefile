@@ -6,7 +6,10 @@ all: benchmarks
 adapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 
-benchmarks: khmer_part.time group.time format_annotate.sh.time nema.x.mouse.time \
+benchmarks: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pairs.sh.time trim_clean.sh.time \
+	diginorm_pe.sh.time diginorm_se.time filter-adund.time diginorm_clean.sh.time \
+	trinity_split.sh.time trinity.time \
+	khmer_part.time group.time format_annotate.sh.time nema.x.mouse.time \
 	mouse.x.nema.time homology.time orthology.time \
 	get_mouse_info.sh.time annotate.time
 
@@ -65,7 +68,7 @@ trinity_split.sh.time:
 #Change -JM 15G based on machine memory
 trinity.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	bash stats.sh trinity & time -o trinity.time /root/trinityrnaseq*/Trinity.pl --left left.fq --right right.fq --seqType fq -JM 15G
+	bash stats.sh trinity & time -o trinity.time /root/trinityrnaseq*/Trinity.pl --left left.fq --right right.fq --seqType fq -JM 32G
 	touch trinity.time.done
 
 #Part 5
