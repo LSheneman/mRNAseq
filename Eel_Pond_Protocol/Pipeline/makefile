@@ -11,7 +11,8 @@ benchmarks: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pair
 	trinity_split.sh.time trinity.time \
 	khmer_part.time group.time format_annotate.sh.time nema.x.mouse.time \
 	mouse.x.nema.time homology.time orthology.time \
-	get_mouse_info.sh.time annotate.time
+	get_mouse_info.sh.time annotate.time \
+	transcript_map.time reference.time rsem.sh.time gene_result.time isoform_result.time
 
 adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
@@ -117,3 +118,29 @@ annotate.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	bash stats.sh annotate & time -o annotate.time python /usr/local/share/eel-pond/annotate-seqs.py trinity-nematostella.renamed.fa nema.x.mouse.ortho nema.x.mouse.homol
 	touch annotate.time.done
+
+#RSEM
+transcript_map.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash stats.sh transcript_map & time -o transcript_map.time python /usr/local/share/eel-pond/make-transcript-to-gene-map-file.py nematostella.fa nematostella.fa.tr_to_genes
+	touch transcript_map.time.done
+
+reference.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash stats.sh reference & time -o reference.time rsem-prepare-reference --transcript-to-gene-map nematostella.fa.tr_to_genes nematostella.fa nema
+	touch reference.time.done
+
+rsem.sh.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash stats.sh rsem.sh & time -o rsem.sh.time bash rsem.sh
+	touch rsem.sh.time.done
+
+gene_result.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash stats.sh gene_result & time -o gene_result.time rsem-generate-data-matrix ?.fq.genes.results ??.fq.genes.results > genes.results
+	touch gene_result.time.done
+
+isoform_result.time:
+	-echo 3 > /proc/sys/vm/drop_caches
+	bash stats.sh isoform_result & time -o isoform_result.time rsem-generate-data-matrix ?.fq.isoforms.results ??.fq.isoforms.results > isoforms.results
+	touch isoform_result.time.done
