@@ -4,7 +4,7 @@
 #break out the orphaned and still-paired reads
 for i in *.pe.*.abundfilt;
 do
-   python /usr/local/share/khmer/sandbox/strip-and-split-for-assembly.py $i
+   /usr/local/share/khmer/scripts/extract-paired-reads.py $i
 done
 
 #combine the orphaned reads
