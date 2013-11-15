@@ -16,10 +16,10 @@ benchmarks: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pair
 
 adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	bash stats.sh adapter_trim & time -o adapter_trim.time python ${KHMER}/sandbox/write-trimmomatic.py > trim.sh
+	(bash stats.sh adapter_trim & time -o adapter_trim.time python ${KHMER}/sandbox/write-trimmomatic.py > trim.sh) || rm adapter_trim.time && false
 	touch adapter_trim.time.done
 
-trim_run.sh.time:
+trim_run.sh.time: adapter_trim.time
 	-echo 3 > /proc/sys/vm/drop_caches
 	bash stats.sh trim_run.sh & time -o trim_run.sh.time bash trim.sh
 	touch trim_run.sh.time.done
