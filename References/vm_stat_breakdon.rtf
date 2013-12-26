@@ -1,0 +1,46 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs24 \cf0 #Stats every 5 secs\
+infile = open('../Data/AWS_m2.xlarge/Part5/annotate.vm.txt')\
+headers = infile.readline()\
+headers = str.split(headers)\
+\
+print headers\
+\
+for index, field in enumerate(headers):\
+    #################   CPU    ############\
+    if 'r' is field:      #processes that are runnable and waiting\
+        r_index = index\
+    if 'b' is field:      #processes that need resources and waiting\
+        b_index = index\
+    if 'sy' in field:      #percent of cpu used for system clean up\
+        sy_index = index\
+    if 'us' in field:      #percent of cpu used for programs\
+        us_index = index\
+    if 'id' in field:      #waiting for new task -- idle\
+        id_index = index\
+    if 'wa' in field:      #waiting for I/O (bad >25%)\
+        wa_index = index\
+\
+    #################   Memory    ############\
+    if 'si' in field:      #swap into RAM\
+    	si_index = index\
+    if 'so' in field:      #swap memory in to VM\
+        so_index = index\
+    if 'free' in field:    #free memory\
+        free_index = index\
+        \
+    #################   I/O    ############\
+    if 'bi' in field:      #data read 1 kb blocks\
+        bi_index = index\
+    if 'bo' in field:      #data written 1kb blocks\
+        bo_index = index\
+\
+    #################   Disk    ############\
+    if 'in' in field:      #disk faults\
+        df_index = index\
+infile.close();}
