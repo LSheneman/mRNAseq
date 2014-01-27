@@ -13,7 +13,7 @@ curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.
 
 ${SOFTWARE_SOURCE}/screed_install.sh
 if($? -ne 0) then exit 1
-echo "screed install successful"
+echo "screed install successful" fi
 ${SOFTWARE_SOURCE}/khmer_install.sh 
 if($? -ne 0) then exit 1
 echo "khmer install successful"
