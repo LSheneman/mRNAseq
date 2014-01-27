@@ -12,6 +12,8 @@ mkdir work && cd work
 curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
 
 ${SOFTWARE_SOURCE}/screed_install.sh
+echo $?
+echo "install successful"
 ${SOFTWARE_SOURCE}/khmer_install.sh 
 ${SOFTWARE_SOURCE}/trimmomatic_install.sh
 ${SOFTWARE_SOURCE}/libgtextutils_install.sh
