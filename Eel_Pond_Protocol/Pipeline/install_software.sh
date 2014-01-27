@@ -15,7 +15,7 @@ ${SOFTWARE_SOURCE}/screed_install.sh
 if($? -ne 0) then exit 1
 echo "screed install successful" fi
 ${SOFTWARE_SOURCE}/khmer_install.sh 
-if($? -ne 0) then exit 1
+if($? -ne 0) then exit 1 else "khmer failed" fi
 echo "khmer install successful"
 ${SOFTWARE_SOURCE}/trimmomatic_install.sh
 if($? -ne 0) then exit 1
