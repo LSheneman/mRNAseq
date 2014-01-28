@@ -14,6 +14,20 @@ benchmarks: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pair
 	get_mouse_info.sh.time annotate.time \
 	transcript_map.time reference.time rsem.sh.time gene_result.time isoform_result.time
 
+quaility: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pairs.sh.time trim_clean.sh.time
+
+diginorm: diginorm_pe.sh.time diginorm_se.time filter-adund.time diginorm_clean.sh.time
+
+assembly: trinity_split.sh.time trinity.time
+
+transcript: khmer_part.time group.time
+
+annotate: format_annotate.sh.time nema.x.mouse.time mouse.x.nema.time homology.time orthology.time get_mouse_info.sh.time annotate.time 
+
+analysis: transcript_map.time reference.time rsem.sh.time gene_result.time isoform_result.time
+
+expression: matrixDir.sh.time ebseq.time expression.time visual.time
+
 adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	(bash stats.sh adapter_trim & time -o adapter_trim.time python ${KHMER}/sandbox/write-trimmomatic.py > trim.sh) || rm adapter_trim.time.done && false
