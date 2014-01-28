@@ -1,6 +1,7 @@
 #!/bin/bash -e
 #general packages
-apt-get install sysstat --force-yes 
+apt-get -y install sysstat 
+apt-get -y install libgtextutils-dev
 SOFTWARE_SOURCE=/root/mRNAseq/source
 
 #Install eel-pond scripts
@@ -15,7 +16,7 @@ curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.
 ${SOFTWARE_SOURCE}/screed_install.sh 
 ${SOFTWARE_SOURCE}/khmer_install.sh 
 ${SOFTWARE_SOURCE}/trimmomatic_install.sh
-${SOFTWARE_SOURCE}/libgtextutils_install.s
+${SOFTWARE_SOURCE}/libgtextutils_install.sh 
 ${SOFTWARE_SOURCE}/fastx_install.sh 
 ${SOFTWARE_SOURCE}/trinity_install.sh 
 ${SOFTWARE_SOURCE}/bowtie_install.sh 
