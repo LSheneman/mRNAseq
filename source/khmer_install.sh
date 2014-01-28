@@ -1,9 +1,14 @@
+#!/bin/bash -e
 #Install Khmer
 
 cd /usr/local/share
-git clone https://github.com/ged-lab/khmer.git -b bleeding-edge
+git clone https://github.com/ged-lab/khmer.git
+
 cd khmer
+git checkout protocols-v0.8.3
 make
 
-echo 'export PYTHONPATH=/usr/local/share/khmer/python' >> ~/.bashrc
+echo 'export PYTHONPATH=$PYTHONPATH:/usr/local/share/khmer/python' >> ~/.bashrc
 source ~/.bashrc
+
+exit 0
