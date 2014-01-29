@@ -1,18 +1,10 @@
 #Makefile
 KHMER=/usr/local/share/khmer
 
-all: benchmarks
+all: adapters quaility diginorm assembly transcript annotate analysis expression
 	
 adapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
-
-benchmarks: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pairs.sh.time trim_clean.sh.time \
-	diginorm_pe.sh.time diginorm_se.time filter-adund.time diginorm_clean.sh.time \
-	trinity_split.sh.time trinity.time \
-	khmer_part.time group.time format_annotate.sh.time nema.x.mouse.time \
-	mouse.x.nema.time homology.time orthology.time \
-	get_mouse_info.sh.time annotate.time \
-	transcript_map.time reference.time rsem.sh.time gene_result.time isoform_result.time
 
 quaility: adapter_trim.time trim_run.sh.time quality_trim.sh.time extract_pairs.sh.time trim_clean.sh.time
 
@@ -33,7 +25,7 @@ adapter_trim.time:
 	(bash stats.sh adapter_trim & time -o adapter_trim.time python ${KHMER}/sandbox/write-trimmomatic.py > trim.sh) || (rm adapter_trim.time.done && false)
 	touch adapter_trim.time.done
 
-trim_run.sh.time: 
+trim_run.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
 	(bash stats.sh trim_run.sh & time -o trim_run.sh.time bash trim.sh)  || (rm trim_run.sh.time.done && false)
 	touch trim_run.sh.time.done
@@ -56,7 +48,7 @@ trim_clean.sh.time:
 #Part 2
 diginorm_pe.sh.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	(bash stats.sh diginorm_pe.sh & time -o diginorm_pe.sh.time python ${KHMER}/scripts/normalize-by-median.py -p -k 20 -C 20 -N 4 -x 3e9 --savehash normC20k20.kh *.pe.qc.fq.gz)  || (rm diginorm_pe.sh.time.done && false)
+	(bash stats.sh diginorm_pe.sh & time -o diginorm_pe.sh.time python ${KHMER}/scripts/normalize-by-median.py -p -k 20 -C 20 -N 4 -x 3e9 --savehash normC20k20.kh *.pe.qc.fq.gz -p -k 20 -C 20 -N 4 -x 3e9 --savehash normC20k20.kh *.pe.qc.fq.gz)  || (rm diginorm_pe.sh.time.done && false)
 	touch diginorm_pe.sh.time.done
 
 diginorm_se.time:
