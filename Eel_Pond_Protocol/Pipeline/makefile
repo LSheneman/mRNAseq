@@ -6,6 +6,9 @@ all: adapters quaility diginorm assembly transcript annotate analysis expression
 adapters:
 	curl -O https://s3.amazonaws.com/public.ged.msu.edu/illuminaClipping.fa
 
+data:
+	curl -O athyra.idyll.org/~t/mrnaseq-subset.tar
+
 quaility: adapter_trim.time trim_run.time quality_trim.time extract_pairs.time trim_clean.time
 
 diginorm: diginorm_pe.time diginorm_se.time filter-abund.time diginorm_clean.time
@@ -75,7 +78,7 @@ trinity_split.time:
 #Change -JM 15G based on machine memory
 trinity.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	(bash stats.sh trinity & time -o trinity.time trinity.sh $1)  || (rm trinity.time.done && false)
+	(bash stats.sh trinity & time -o trinity.time bash trinity.sh $i)  || (rm trinity.time.done && false)
 	touch trinity.time.done
 
 #Part 5
