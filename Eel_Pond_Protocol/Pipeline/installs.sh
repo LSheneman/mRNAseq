@@ -1,4 +1,4 @@
-      cd /usr/local/share
+   cd /usr/local/share
    git clone https://github.com/ctb/eel-pond.git
    cd eel-pond
    git checkout protocols-v0.8.3

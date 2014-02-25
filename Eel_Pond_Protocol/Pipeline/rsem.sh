@@ -1,7 +1,7 @@
 #!/bin/bash
 #Run RSEM on list.txt
 
-ln -fs /data/*.pe.qc.fq.gz .
+ln -fs data/*.pe.qc.fq.gz .
 ls -1 *.pe.qc.fq.gz > list.txt
 
 n=1

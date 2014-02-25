@@ -8,8 +8,9 @@ adapters:
 
 data:
 	curl -O athyra.idyll.org/~t/mrnaseq-subset.tar
+	tar -xvvf mrnaseq-subset.tar
 
-quaility: adapter_trim.time trim_run.time quality_trim.time extract_pairs.time trim_clean.time
+quality: adapter_trim.time trim_run.time quality_trim.time extract_pairs.time trim_clean.time
 
 diginorm: diginorm_pe.time diginorm_se.time filter-abund.time diginorm_clean.time
 
@@ -19,9 +20,9 @@ transcript: khmer_part.time group.time
 
 annotate: format_annotate.time blastx.time tblastn.time homology.time orthology.time get_mouse_info.time annotate.time 
 
-analysis: transcript_map.time reference.time rsem.time gene-matrix.time isoform-matrix.time
+analysis: transcript_map.time reference.time rsem.time gene-matrix.time 
 
-expression: matrixDir.sh.time ebseq.time expression.time visual.time
+expression: ebseq.time expression.time visual.time
 
 adapter_trim.time:
 	-echo 3 > /proc/sys/vm/drop_caches
@@ -99,7 +100,7 @@ format_annotate.time:
 
 blastx.time:
 	-echo 3 > /proc/sys/vm/drop_caches
-	(bash stats.sh blastx & time -o blastx.time bash blastx)  || (rm blastx.time.done && false)
+	(bash stats.sh blastx & time -o blastx.time bash blastx.sh)  || (rm blastx.time.done && false)
 	touch blastx.time.done
 
 tblastn.time:
