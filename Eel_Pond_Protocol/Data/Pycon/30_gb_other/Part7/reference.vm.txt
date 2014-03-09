@@ -1,0 +1,2 @@
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 0  0      0 30569260    844  22112    0    0     0     0   77   89  0  0 100  0

@@ -1,0 +1,10 @@
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 0  1      0 28324640   1700 1136376    0    0 383476     0 9149 4226  0  3 90  7
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 1  0      0 22141716   4728 4219820    0    0 368744     0 8878 4184  0  3 90  7
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 1  0      0 16198240   7628 7183628    0    0 347988     0 8327 3959  0  3 90  7
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 0  1      0 10145244  10576 10202268    0    0 371048     0 8907 4158  0  2 91  7
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 1  0      0 15165480  12164 11746576    0    0     0     0  581  572  0 13 87  0

@@ -1,0 +1,22 @@
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+Average:     all    0.25    0.00    0.25   50.13    0.00    0.00    0.00    0.00   49.37
+Average:       0    0.00    0.00    0.51   99.49    0.00    0.00    0.00    0.00    0.00
+Average:       1    0.00    0.00    0.50    1.50    0.00    0.00    0.00    0.00   98.00
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+Average:     all    0.00    0.00    0.51   48.74    0.00    0.00    0.00    0.00   50.76
+Average:       0    0.00    0.00    0.51   98.97    0.00    0.00    0.00    0.00    0.51
+Average:       1    0.00    0.00    0.50    0.50    0.00    0.00    0.00    0.00   99.01
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+Average:     all    0.25    0.00    0.25    0.25    0.00    0.00    0.00    0.00   99.25
+Average:       0    0.00    0.00    0.00    0.51    0.00    0.00    0.00    0.00   99.49
+Average:       1    0.00    0.00    0.50    0.00    0.00    0.00    0.00    0.00   99.50
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+Average:     all    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:       0    0.50    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.50
+Average:       1    0.00    0.00    0.50    0.00    0.00    0.00    0.00    0.00   99.50
+04:25:15 PM    1    0.00    0.00    9.09    0.00    0.00    0.00    0.00    0.00   90.91
+
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+Average:     all    7.32    0.00   15.66   26.26    0.00    0.00    0.00    0.00   50.76
+Average:       0   15.23    0.00   26.40   52.28    0.00    0.00    0.00    0.00    6.09
+Average:       1    0.00    0.00    4.50    1.00    0.00    0.00    0.00    0.00   94.50
